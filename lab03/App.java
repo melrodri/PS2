@@ -26,6 +26,8 @@ public class App {
             System.out.println("\n(1) - Listar produtos");
             System.out.println("(2) - Pesquisar descrição");
             System.out.println("(3) - Pesquisar marca");
+            System.out.println("(4) - Pesquisar pelo preço máximo");
+            System.out.println("(5) - Pesquisar pelo preço mínimo");
             System.out.println("(0) - Sair");
         
             System.out.print("Escolha uma opção: ");
@@ -35,12 +37,14 @@ public class App {
                 case "0":
                     sair = true;
                     break;
+
                 case "1":
                     System.out.println("\n\nLista de produtos: ");
                     for (Produto p: produtos) {
                         System.out.println(p);
                     }
                     break;
+
                 case "2":
                     System.out.print("Termo a pesquisar: ");
                     String termo = sc.nextLine();
@@ -60,6 +64,27 @@ public class App {
                         System.out.println(p);
                     } 
                     break;
+
+                case "4":
+                    System.out.print("Preço máximo: ");
+                    String precoMax = sc.nextLine();
+                    System.out.println("\nResultado da pesquisa: ");
+                    List<Produto> resultado3 = pesquisar(produtos, precoMax, new CriterioPrecoMaximo());
+                    for (Produto p : resultado3) {
+                        System.out.println(p);
+                    }
+                    break;
+
+                case "5":
+                    System.out.print("Preço mínimo: ");
+                    String precoMin = sc.nextLine();
+                    System.out.println("\nResultado da pesquisa: ");
+                    List<Produto> resultado4 = pesquisar(produtos, precoMin, new CriterioPrecoMinimo());
+                    for (Produto p : resultado4) {
+                        System.out.println(p);
+                    }
+                    break;
+
                 default:
                     System.out.println("Opção inválida");
                     break;
@@ -72,19 +97,16 @@ public class App {
         Path arquivo = Paths.get("produtos.txt");
         List<Produto> produtos = new ArrayList<>();
 
-
         try {
             linhas = Files.readAllLines(arquivo);
             for (String linha : linhas) {
                 String[] c = linha.split(";");
                 Produto p = new Produto(c[0], Double.parseDouble(c[1]), c[2]);
                 produtos.add(p);
-                
             }
             menuPrincipal(produtos);
         } catch (IOException e) {
             System.out.println("Erro ao carregar os produtos");
         }
-
     }
 }
