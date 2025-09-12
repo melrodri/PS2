@@ -167,4 +167,4 @@ public class App {
         if (qte >= 1) System.out.println("Empréstimo removido com sucesso");
         psmt.close();
     }
-}1e 
+}
