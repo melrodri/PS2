@@ -3,19 +3,20 @@ package br.mack.ps2.biblioteca.model;
  import javax.annotation.processing.Generated;
 
 import jakarta.persistence.Entity;
- import jakarta.persistence.Id;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
  import jakarta.persistence.Id;
     
 @Entity
-public class Emprestimos {
+public class Emprestimo {
     @Id @GeneratedValue
     private long id;
     private int idLivro;
     private java.util.Date dataRetirada;
 
-    public Emprestimos(){}
+    public Emprestimo(){}
 
-    public Emprestimos(Long id, int idLivro, java.util.Date dataRetirada){
+    public Emprestimo(Long id, int idLivro, java.util.Date dataRetirada){
         this.id = id;
         this.idLivro = idLivro;
         this.dataRetirada = dataRetirada;
