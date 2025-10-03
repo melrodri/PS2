@@ -1,36 +1,30 @@
 package br.mack.ps2.biblioteca.model;
 
- import javax.annotation.processing.Generated;
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
- import jakarta.persistence.Id;
-    
+import jakarta.persistence.Temporal;
+import jakarta.persistence.TemporalType;
+import java.util.Date;
+
 @Entity
 public class Emprestimo {
-    @Id @GeneratedValue
-    private long id;
-    private int idLivro;
-    private java.util.Date dataRetirada;
 
-    public Emprestimo(){}
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
-    public Emprestimo(Long id, int idLivro, java.util.Date dataRetirada){
+    private Long idLivro;
+
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date dataRetirada;
+
+    public Emprestimo() {}
+
+    public Emprestimo(Long id, Long idLivro, Date dataRetirada){
         this.id = id;
         this.idLivro = idLivro;
-        this.dataRetirada = dataRetirada;
-    }
-
-    public void setId(Long id){
-        this.id=id;
-    }
-
-    public void setIdLivro(int idLivro){
-        this.idLivro=idLivro;
-    }
-
-    public void setDataRetirada(java.util.Date dataRetirada){
         this.dataRetirada = dataRetirada;
     }
 
@@ -38,11 +32,23 @@ public class Emprestimo {
         return this.id;
     }
 
-    public int getIdLivro(){
+    public void setId(Long id){
+        this.id = id;
+    }
+
+    public Long getIdLivro(){
         return this.idLivro;
     }
 
-    public java.util.Date getDataRetirada(){
+    public void setIdLivro(int idLivro){
+        this.idLivro = idLivro;
+    }
+
+    public Date getDataRetirada(){
         return this.dataRetirada;
+    }
+
+    public void setDataRetirada(Date dataRetirada){
+        this.dataRetirada = dataRetirada;
     }
 }
