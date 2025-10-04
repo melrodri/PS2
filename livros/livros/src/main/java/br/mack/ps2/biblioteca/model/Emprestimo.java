@@ -40,7 +40,7 @@ public class Emprestimo {
         return this.idLivro;
     }
 
-    public void setIdLivro(int idLivro){
+    public void setIdLivro(Long idLivro){
         this.idLivro = idLivro;
     }
 

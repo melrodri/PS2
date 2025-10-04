@@ -1,6 +1,6 @@
 package br.mack.ps2.biblioteca;
 
-import br.mack.ps2.biblioteca.dao.DAOEmprestimo;git add  
+import br.mack.ps2.biblioteca.dao.DAOEmprestimo;
 import br.mack.ps2.biblioteca.dao.DAOLivros;
 import br.mack.ps2.biblioteca.model.Emprestimo;
 import br.mack.ps2.biblioteca.model.Livros; // se sua classe for Livro, troque aqui e abaixo
@@ -13,8 +13,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class BibliotecaApplication implements CommandLineRunner {
 
-    @Autowired private DAOEmprestimo daoEmprestimo;
-    @Autowired private DAOLivros daoLivros;
+    @Autowired 
+    private DAOEmprestimo daoEmprestimo;
+    @Autowired 
+    private DAOLivros daoLivros;
 
     public static void main(String[] args) {
         SpringApplication.run(BibliotecaApplication.class, args);
