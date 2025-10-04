@@ -1,8 +1,9 @@
 package br.mack.ps2.biblioteca.dao;
-import org.springframework.data.repository.CrudRepository;
+
 import br.mack.ps2.biblioteca.model.Livros;
+import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.List;
 
-public interface DAOLivros extends CrudRepository<Livros, Long> {
-    List<Livros> findByTitulo(String titulo);
+public interface DAOLivros extends JpaRepository<Livros, Long> {
+    List<Livros> findByTituloContainingIgnoreCase(String titulo);
 }
